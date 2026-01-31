@@ -19,10 +19,10 @@
 ## Foundational Patterns
 
 ### 1. Narrow Tests *(ACTIVE)*
-- [ ] **Repository Skeleton** — Create the `cpp/` layout (`src/{app,infrastructure,logic}`, `tests/{app,infrastructure,logic}`, and infrastructure helper runner folders).  
+- [x] **Repository Skeleton** — Create the `cpp/` layout (`src/{app,infrastructure,logic}`, `tests/{app,infrastructure,logic}`, and infrastructure helper runner folders).  
   - *Why:* Enables per-layer narrow test targets.  
   - *Verify:* Manual `ls cpp`.  
-- [ ] **Build Driver** — Add top-level `CMakeLists.txt` delegating to `cpp/`, plus `cpp/CMakeLists.txt` that enforces C++20, warnings, and FetchContent for Catch2.  
+- [x] **Build Driver** — Add top-level `CMakeLists.txt` delegating to `cpp/`, plus `cpp/CMakeLists.txt` that enforces C++20, warnings, and FetchContent for Catch2.  
   - *Why:* Lets each narrow suite build independently.  
   - *Verify:* `cmake -S cpp -B build` succeeds.  
 - [ ] **Rot13 Logic Tests** — Begin `cpp/tests/logic/Rot13Tests.cpp` with the minimal failing empty-string case, then expand for lowercase, uppercase, and symbol preservation.  
