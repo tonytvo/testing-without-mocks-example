@@ -1,13 +1,5 @@
 # C++ Port Plan Organized by Testing Without Mocks Patterns
 
-> The spec mandates a modern C++ port while preserving the Testing Without Mocks ethos. Every actionable item below maps directly to one of the repository’s documented patterns so we can work in focused slices. Follow the TDD micro-cycle for **every** code-producing bullet:
-> 1. Extend the specified Catch2 test file with a failing example tied to the pattern.
-> 2. Run the narrow test target (e.g., `ctest -R rot13`) and confirm the failure mode.
-> 3. Touch only the named implementation file(s) to provide the production behavior.
-> 4. Re-run the same test until it passes.
-> 5. Commit with a `🤖`-prefixed message that describes the pattern slice you just completed.
-> 6. Stop and await the next instruction before beginning another slice.
-
 ---
 
 ## Pattern Focus Queue
