@@ -46,6 +46,29 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
+add_library(rot13_logic
+    src/logic/Rot13.cpp
+)
+target_include_directories(rot13_logic
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_link_libraries(rot13_logic
+    PUBLIC project_options
+    PRIVATE project_warnings
+)
+
 if(BUILD_TESTING)
     enable_testing()
+
+    add_executable(rot13_logic_tests
+        tests/logic/Rot13Tests.cpp
+    )
+    target_link_libraries(rot13_logic_tests
+        PRIVATE
+            rot13_logic
+            Catch2::Catch2WithMain
+            project_options
+            project_warnings
+    )
+    add_test(NAME rot13_logic_tests COMMAND rot13_logic_tests)
 endif()
