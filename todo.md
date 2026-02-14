@@ -17,7 +17,7 @@
 - [x] **Build Driver** — Add top-level `CMakeLists.txt` delegating to `cpp/`, plus `cpp/CMakeLists.txt` that enforces C++20, warnings, and FetchContent for Catch2.  
   - *Why:* Lets each narrow suite build independently.  
   - *Verify:* `cmake -S cpp -B build` succeeds.  
-- [ ] **Rot13 Logic Tests** — Begin `cpp/tests/logic/Rot13Tests.cpp` with the minimal failing empty-string case, then expand for lowercase, uppercase, and symbol preservation.  
+- [x] **Rot13 Logic Tests** — Begin `cpp/tests/logic/Rot13Tests.cpp` with the minimal failing empty-string case, then expand for lowercase, uppercase, and symbol preservation.  
   - *Implementation:* `cpp/src/logic/Rot13.{hpp,cpp}`.  
   - *Pattern Link:* Ensures every behavior is covered by a targeted test.  
 - [ ] **CommandLine Narrow Suite** — Scaffold `cpp/tests/infrastructure/CommandLineTests.cpp` to compile-instantiate headers, then drive each capability (args parsing, writing, listener fan-out, null handles) one case at a time.  
