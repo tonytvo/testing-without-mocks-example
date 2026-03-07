@@ -57,6 +57,17 @@ target_link_libraries(rot13_logic
     PRIVATE project_warnings
 )
 
+add_library(infrastructure_command_line
+    src/infrastructure/CommandLine.cpp
+)
+target_include_directories(infrastructure_command_line
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_link_libraries(infrastructure_command_line
+    PUBLIC project_options
+    PRIVATE project_warnings
+)
+
 if(BUILD_TESTING)
     enable_testing()
 
@@ -71,4 +82,16 @@ if(BUILD_TESTING)
             project_warnings
     )
     add_test(NAME rot13_logic_tests COMMAND rot13_logic_tests)
+
+    add_executable(command_line_tests
+        tests/infrastructure/CommandLineTests.cpp
+    )
+    target_link_libraries(command_line_tests
+        PRIVATE
+            infrastructure_command_line
+            Catch2::Catch2WithMain
+            project_options
+            project_warnings
+    )
+    add_test(NAME command_line_tests COMMAND command_line_tests)
 endif()
