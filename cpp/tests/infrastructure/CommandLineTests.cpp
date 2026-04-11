@@ -4,41 +4,7 @@
 #include <utility>
 #include <vector>
 
-#if __has_include("infrastructure/CommandLine.hpp")
 #include "infrastructure/CommandLine.hpp"
-#else
-#include <ostream>
-namespace infrastructure {
-class CommandLine {
-public:
-    static CommandLine create()
-    {
-        return CommandLine{};
-    }
-
-    static CommandLine createNull(std::vector<std::string> args = {}, std::ostream* = nullptr)
-    {
-        CommandLine instance;
-        instance.args_ = std::move(args);
-        return instance;
-    }
-
-    [[nodiscard]] const std::vector<std::string>& args() const noexcept
-    {
-        return args_;
-    }
-
-private:
-    std::vector<std::string> args_{};
-};
-
-namespace command_line_detail {
-inline void setProcessArgsForTesting(std::vector<std::string>) {}
-inline void resetProcessArgsForTesting() {}
-}  // namespace command_line_detail
-
-}  // namespace infrastructure
-#endif
 
 namespace {
 

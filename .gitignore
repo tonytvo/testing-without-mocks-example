@@ -3,3 +3,5 @@
 /.idea/workspace.xml
 /generated/
 build/
+cppbuild/
+compile_commands.json

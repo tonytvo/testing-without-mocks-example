@@ -13,9 +13,12 @@ export class App {
 	}
 
 	run() {
-		const args = this._commandLine.args();
-		if (args.length === 0) {
+    const args = this._commandLine.args();
+    //how the app execute those command line?
+    //how the app interact/return output from commandline?
+    if (args.length === 0) {
 			this._commandLine.writeOutput("Usage: run text_to_transform\n");
+      //commandLineOutput.write();
 			return;
 		}
 		if (args.length !== 1) {
@@ -29,3 +32,6 @@ export class App {
 	}
 
 }
+
+// arg1 arg2
+// ./app.js arg1 arg2
